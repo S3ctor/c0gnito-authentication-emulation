@@ -10,8 +10,8 @@ ever we want.
 
 ![](https://github.com/S3ctor/c0gnito-authentication-emulation/blob/main/assets/Capture.PNG)
 
-# How to use it. 1      (better version) (x64 & x86)
+# How to use latest (best version) (x64 & x86)
 Download release 2.0 (make sure to get the correct architecture) and inject it into the process that utilizes c0gnito authentication.
 
-# How to use it. 2
-Download release 1.0 and replace the c0gnito.dll located in the same directory as the target process. (only for x64)
+# How to use 1.0 (only for x64)
+Download release 1.0 and replace the c0gnito.dll located in the same directory as the target process. 
