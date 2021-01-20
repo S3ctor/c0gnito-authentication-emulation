@@ -8,6 +8,4 @@ contained within their image preventing one from just swapping the modules. The 
 protection such as VMP. So by simply locating the export address to the authentication primitive we can simply place a jmp instruction to own function (detour hooking) and do what 
 ever we want.
 
-![](https://github.com/S3ctor/PE-appropriator/blob/main/PE-appropriator/Assets/Usage.PNG)
-
-![](https://github.com/S3ctor/PE-appropriator/blob/main/PE-appropriator/Assets/Usage.PNG)
+![](https://github.com/S3ctor/c0gnito-authentication-emulation/blob/main/assets/Capture.PNG)
