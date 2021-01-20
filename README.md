@@ -15,3 +15,6 @@ Download release 2.0 (make sure to get the correct architecture) and inject it i
 
 # How to use 1.0 (only for x64)
 Download release 1.0 and replace the c0gnito.dll located in the same directory as the target process. 
+
+# Why?
+Sadly this was too simple; although the authentication is free it is a major weak point in software security. Also I wanted to gain access to shit quickly that uses it as an authentication.
