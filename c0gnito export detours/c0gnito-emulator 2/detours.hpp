@@ -3,28 +3,43 @@
 
 #include <Windows.h>
 
+#if _M_IX86
+#define ADRR_OFFSET 0x1
+#elif _M_X64
+#define ADRR_OFFSET 0x2
+#endif
+
+
+
 namespace detours
 {
 	auto Detour(void* address, void* target) -> void
 	{
-		unsigned char jmp[12] = 
-		{
-				0x48, 0xb8, // ; mov rax, addr
-				0x0,
-				0x0,
-				0x0,
-				0x0,
-				0x0,
-				0x0,
-				0x0,
-				0x0,
-				0xff, 0xe0 // ; jmp rax
+		#if _M_IX86
+		unsigned char jmp[7] = {
+			0xb8, 0x0, 0x0, 0x0, 0x0,
+			0xFF, 0xE0
 		};
+		#elif _M_X64
+		unsigned char jmp[12] =
+		{
+				0x48, 0xb8, 
+				0x0,
+				0x0,
+				0x0,
+				0x0,
+				0x0,
+				0x0,
+				0x0,
+				0x0,
+				0xff, 0xe0 
+		};
+		#endif
 
 		DWORD old_protection = 0;
 
 		// Setup the jmp to our target addr
-		memcpy(jmp + 0x2, &target, sizeof(target));
+		memcpy(jmp + ADRR_OFFSET, &target, sizeof(target));
 
 		// Change memory protection
 		VirtualProtect(address, sizeof(jmp),
